@@ -62,6 +62,8 @@ define apache::vhost(
   }
 
   file {
+    "$docroot":
+      ensure => directory;
     "${apache::params::vdir}/${priority}-${name}.conf":
       content => template($template),
       owner   => 'root',
